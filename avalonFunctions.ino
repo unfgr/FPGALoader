@@ -445,21 +445,21 @@ static unsigned char xor_20(unsigned char val)
 
 void spi_command(unsigned int packet_length, unsigned char* send_packet, unsigned int response_max_len, unsigned char* response_packet){
 //Serial.print("Sending: ");
-int i = 0;
-for(i=0;i<packet_length;i++){
-//Serial.print(*(send_packet+i),HEX);
-//Serial.print("|");   
-}
-//Serial.println("");
-SPI_2.write(send_packet,packet_length);
-//Serial.println("Packet Send, Trying to read Response...");
-SPI_2.read(response_packet, response_max_len);
-//Serial.print("Response Received: ");
-for(i=0;i<response_max_len;i++){ 
-//Serial.print(*(response_packet+i),HEX);
-//Serial.print("|");   
-}
-//Serial.println("-");  
+	int i = 0;
+	for(i=0;i<packet_length;i++){
+		//Serial.print(*(send_packet+i),HEX);
+		//Serial.print("|");   
+	}
+	//Serial.println("");
+	SPI_2.write(send_packet,packet_length);   //<---- Using SPI2, may need to be instantiated!
+	//Serial.println("Packet Send, Trying to read Response...");
+	SPI_2.read(response_packet, response_max_len);      
+	//Serial.print("Response Received: ");
+	for(i=0;i<response_max_len;i++){ 
+		//Serial.print(*(response_packet+i),HEX);
+		//Serial.print("|");   
+	}
+	//Serial.println("-");  
 }
 
 
